@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Boat Position</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-title" content="Le Champlain - Position">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="champlain/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="champlain/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="champlain/favicon-16x16.png">
+    <link rel="manifest" href="champlain/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+
+
+        }
+        #vesselfinder{
+            height: 96vh;
+        }
+        .nav{
+            border-bottom: white 1px solid;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav a:hover{
+            border-bottom: 1px solid white;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 5px;
+            margin: 0;
+            background-color: #254881;
+        }
+
+        .nav ul li{
+            padding-right: 5%;
+            padding-left: 5px;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="index.html?boatName=iledere">Ile de Ré</a></li>
+            <li><a href="index.html?boatName=champlain">Le Champlain</a></li>
+            <li><a href="index.html?boatName=energyobserver">Energy Observer</a></li>
+            <li><a href="index.html?boatName=graindesail">Grain de Sail</a></li>
+        </ul>
+
+    </div>
+<div class="container">
+    <script type="text/javascript">
+    function $_GET(param) {
+            var vars = {};
+            window.location.href.replace(location.hash, '').replace(
+                /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+                function (m, key, value) { // callback
+                    vars[key] = value !== undefined ? value : '';
+                }
+            );
+
+            if (param) {
+                return vars[param] ? vars[param] : null;
+            }
+            return vars;
+        }
+
+        if($_GET('boatName') == 'champlain'){
+            var mmsi = '578001100';
+        }
+        else if($_GET('boatName') == 'energyobserver'){
+            var mmsi = '227802680';
+        }
+        else if ($_GET('boatName') == 'graindesail') {
+            var mmsi = '228376700';
+        }
+        else if ($_GET('boatName') == 'iledere') {
+            var mmsi = '525100486';
+        }
+        else{
+            var mmsi = '525100486';
+        }
+
+        // Map appearance
+        var width="100%";         // width in pixels or percentage
+        //var height="700";         // height in pixels
+        var latitude="0";      // center latitude (decimal degrees)
+        var longitude="0";     // center longitude (decimal degrees)
+        var zoom="5";             // initial zoom (between 3 and 18)
+        var names=true;          // always show ship names (defaults to false)
+
+        // Single ship tracking
+        //var mmsi= $_GET('mmsi');     // display latest position (by MMSI)
+        //var imo="1234567";        // display latest position (by IMO, overrides MMSI)
+        var show_track=true;     // display track line (last 24 hours)
+
+        // Fleet tracking
+        //var fleet="1e291ad2e4e751810f9917e1b18408f0"; // your personal Fleet key (displayed in your User Profile)
+        //var fleet_name="Carnival"; // display particular fleet from your fleet list
+        //var fleet_timespan="10"; // maximum age in minutes of the displayed ship positions
+
+    </script>
+    <script type="text/javascript" src="https://www.vesselfinder.com/aismap.js"></script>
+
+    
+</div>
+</body>
+</html>

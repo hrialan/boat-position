@@ -40,7 +40,7 @@
         .nav {
             background-color: #254881;
             padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
         }
 
         .nav ul {
@@ -72,12 +72,6 @@
 </head>
 
 <body>
-    <div class="nav">
-        <ul>
-            <li><a href="index.html?boatName=costadeliziosa" id="costa">Costa Deliziosa</a></li>
-            <li><a href="index.html?boatName=lejacquescartier" id="jacques">Le Jacques Cartier</a></li>
-        </ul>
-    </div>
     <div class="container">
         <script type="text/javascript">
             function $_GET(param) {
@@ -94,9 +88,6 @@
             var boatName = $_GET('boatName');
             var mmsi = (boatName === 'lejacquescartier') ? '578001400' : '247282900';
 
-            // Mettre en surbrillance le lien actif
-            document.getElementById(boatName === 'lejacquescartier' ? 'jacques' : 'costa').classList.add('active');
-
             var width = "100%";
             var latitude = "0";
             var longitude = "0";
@@ -106,5 +97,18 @@
         </script>
         <script type="text/javascript" src="https://www.vesselfinder.com/aismap.js"></script>
     </div>
+    <div class="nav">
+        <ul>
+            <li><a href="index.html?boatName=costadeliziosa" id="costa">Costa Deliziosa</a></li>
+            <li><a href="index.html?boatName=lejacquescartier" id="jacques">Le Jacques Cartier</a></li>
+        </ul>
+    </div>
+    <script>
+        // Mettre en surbrillance le lien actif
+        document.addEventListener('DOMContentLoaded', function() {
+            var boatName = $_GET('boatName');
+            document.getElementById(boatName === 'lejacquescartier' ? 'jacques' : 'costa').classList.add('active');
+        });
+    </script>
 </body>
 </html>

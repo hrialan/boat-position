@@ -70,9 +70,7 @@
     <div class="nav">
         <ul>
             <li><a href="index.html?boatName=lejacquescartier">Le Jacques Cartier</a></li>
-            <li><a href="index.html?boatName=champlain">Le Champlain</a></li>
-            <li><a href="index.html?boatName=energyobserver">Energy Observer</a></li>
-            <li><a href="index.html?boatName=graindesail">Grain de Sail</a></li>
+            <li><a href="index.html?boatName=graindesail">Costa Deliziosa</a></li>
         </ul>
 
     </div>
@@ -93,20 +91,14 @@
             return vars;
         }
 
-        if($_GET('boatName') == 'champlain'){
-            var mmsi = '578001100';
-        }
-        else if($_GET('boatName') == 'energyobserver'){
-            var mmsi = '227802680';
-        }
-        else if ($_GET('boatName') == 'graindesail') {
-            var mmsi = '228376700';
-        }
-        else if ($_GET('boatName') == 'lejacquescartier') {
+        if($_GET('boatName') == 'lejacquescartier'){
             var mmsi = '578001400';
+        }
+        else if($_GET('boatName') == 'costadeliziosa'){
+            var mmsi = '9398917';
         }
         else{
-            var mmsi = '578001400';
+            var mmsi = '9398917';
         }
 
         // Map appearance
